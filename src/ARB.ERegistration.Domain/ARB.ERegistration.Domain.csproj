@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>ARB.ERegistration</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ARB.ERegistration.Domain.Shared\ARB.ERegistration.Domain.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="3.1.7" />
+    <PackageReference Include="Volo.Abp.Identity.Domain" Version="3.0.5" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="3.0.5" />
+    <PackageReference Include="Volo.Abp.IdentityServer.Domain" Version="3.0.5" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.IdentityServer" Version="3.0.5" />
+    <PackageReference Include="Volo.Abp.BackgroundJobs.Domain" Version="3.0.5" />
+    <PackageReference Include="Volo.Abp.AuditLogging.Domain" Version="3.0.5" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Domain" Version="3.0.5" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Domain" Version="3.0.5" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Domain" Version="3.0.5" />
+  </ItemGroup>
+
+</Project>
