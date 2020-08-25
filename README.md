@@ -10,11 +10,11 @@ git clone
 
 dotnet run ARB.ERegistration.HttpApi.Host
 
-## Added Featuers
+## Extended Featuers
 
 1. Elastic search integration. 
-2. EF Core 3.1 DDD Entities Mapping
-3. Sample ValueObject Mapping using EF Core 3.1
+2. EF Core 3.1 DDD Entities Mapping.
+3. Sample ValueObject Mapping using EF Core 3.1 .
 4. Extended audit trail interfacae.
 5. Added JWT basic configurations.
 
