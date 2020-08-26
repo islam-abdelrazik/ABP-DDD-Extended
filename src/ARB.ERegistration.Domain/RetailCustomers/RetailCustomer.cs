@@ -31,13 +31,19 @@ namespace ARB.ERegistration.RetailCustomers
         internal RetailCustomer(
             Guid id,
             [NN.NotNull] string name,
-            string pinCode,
-            string cardNumber,
-            [CanBeNull] string address = null)
+            [NN.NotNull] string commercialRegisterNo,
+            [NN.NotNull] string cICNo,
+            [NN.NotNull] string address,
+            [CanBeNull] string cardNumber,
+            [CanBeNull] string pinCode,
+            [NN.NotNull] IEnumerable<BankAccount> bankAccounts)
             : base(id)
         {
             SetName(name);
             SetATMCard(cardNumber, pinCode);
+            AddBankAccounts(bankAccounts);
+            this.CommercialRegisterNo = commercialRegisterNo;
+            this.CICNo = cICNo;
             this.Address = address;
         }
 
@@ -58,6 +64,13 @@ namespace ARB.ERegistration.RetailCustomers
         private void SetATMCard(string cardNumber, string pinCode)
         {
             this.ATMCard = new ATMCard(cardNumber, pinCode);
+        }
+
+        private void AddBankAccounts(IEnumerable<BankAccount> bankAccounts)
+        {
+            BankAccounts = BankAccounts is null ? new List<BankAccount>() : BankAccounts;
+            foreach (var bankAccount in bankAccounts)
+                this.BankAccounts.Add(new BankAccount(bankAccount.BankName, bankAccount.BankNumber, this.Id));
         }
     }
 }

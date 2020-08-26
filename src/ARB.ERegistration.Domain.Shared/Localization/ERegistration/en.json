@@ -5,8 +5,9 @@
     "Welcome": "Welcome",
     "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
     "UserNameShouldBeUniqueMessage": "Username should be unique!",
-    "ERegistrationDomainErrorCodes:UserNameUnique": "Username should be unique!",
-    "ERegistrationDomainErrorCodes:RetailCustomerAlreadyExists": "Retail customer already exists"
-
+    "ERegistrationDomainErrorCodes:111": "Username should be unique!",
+    "ERegistrationDomainErrorCodes:222": "Retail customer already exists",
+    "ERegistrationDomainErrorCodes:333": "Pincode length must be 4",
+    "ERegistrationDomainErrorCodes:444": "Card number error!"
   }
 }

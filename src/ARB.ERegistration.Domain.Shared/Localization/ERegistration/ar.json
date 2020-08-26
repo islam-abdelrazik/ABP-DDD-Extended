@@ -5,8 +5,10 @@
     "Welcome": "مرحبا",
     "LongWelcomeMessage": "مرحبا بكم في التطبيق. هذا مشروع بدء تشغيل يعتمد على إطار عمل ABP. لمزيد من المعلومات ، يرجى زيارة abp.io.",
     "UserNameShouldBeUniqueMessage": "أسم المستخدم يجب الا يتكرر!",
-    "ERegistrationDomainErrorCodes:UserNameUnique": "أسم المستخدم يجب الا يتكرر!",
-    "ERegistrationDomainErrorCodes:RetailCustomerAlreadyExists": "أسم المستخدم يجب الا يتكرر!"
+    "ERegistrationDomainErrorCodes:111": "أسم المستخدم يجب الا يتكرر!",
+    "ERegistrationDomainErrorCodes:222": "أسم المستخدم يجب الا يتكرر!",
+    "ERegistrationDomainErrorCodes:333": "طول كلمه السر يجب ان يكون 4!",
+    "ERegistrationDomainErrorCodes:444": "خطاء في رقم الكارت!"
 
   }
 }

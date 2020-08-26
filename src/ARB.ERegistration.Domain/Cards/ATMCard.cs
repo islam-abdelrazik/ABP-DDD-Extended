@@ -27,16 +27,33 @@ namespace ARB.ERegistration.Card
 
         private void SetATMCard([NN.NotNull] string cardNumber, [NN.NotNull] string pinCode)
         {
-            CardNumber = Check.NotNullOrWhiteSpace(
-                cardNumber,
-                nameof(cardNumber),
-                maxLength: ATMCardConstants.PinCodeLength
-            );
-            PinCode = Check.NotNullOrWhiteSpace(
+            try
+            {
+                PinCode = Check.NotNullOrWhiteSpace(
+                   pinCode,
+                   nameof(pinCode),
+                   maxLength: ATMCardConstants.PinCodeLength
+               );
+
+            }
+            catch
+            {
+                throw new BusinessException(ERegistrationDomainErrorCodes.PinCodeLengthError).WithData(nameof(pinCode), pinCode);
+            }
+            
+            try
+            {
+                CardNumber = Check.NotNullOrWhiteSpace(
                 cardNumber,
                 nameof(cardNumber),
                 maxLength: ATMCardConstants.CardNumberLength
                 );
+            }
+            catch
+            {
+                throw new BusinessException(ERegistrationDomainErrorCodes.CardNumberLengthError).WithData(nameof(cardNumber), cardNumber); ;
+            }
+
 
         }
         protected override IEnumerable<object> GetAtomicValues()

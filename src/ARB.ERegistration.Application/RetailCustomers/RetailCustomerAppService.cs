@@ -1,4 +1,6 @@
-﻿using ARB.ERegistration.RetailCustomers.Dtos;
+﻿using ARB.ERegistration.BankAccounts;
+using ARB.ERegistration.BankAccounts.Dtos;
+using ARB.ERegistration.RetailCustomers.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +23,20 @@ namespace ARB.ERegistration.RetailCustomers
             _retailCustomerManager = retailCustomerManager;
         }
 
-        public Task<RetailCustomerDto> CreateAsync(CreateRetailCustomerDto input)
+        public async Task<RetailCustomerDto> CreateAsync(CreateRetailCustomerDto input)
         {
-            throw new NotImplementedException();
+            var bankAccounts = ObjectMapper.Map<IEnumerable<CreateBankAccountDto>, IEnumerable<BankAccount>>(input.BankAccounts);
+              var retailCustomer = await _retailCustomerManager.CreateAsync(
+                input.Name,
+                input.CommercialRegisterNo,
+                input.CICNo,
+                input.Address,
+                input.ATMCard_CardNumber,
+                input.ATMCard_PinCode,
+                bankAccounts
+            );
+            await _retailCustomerRepository.InsertAsync(retailCustomer,true);
+            return ObjectMapper.Map<RetailCustomer, RetailCustomerDto>(retailCustomer);
         }
 
         public Task DeleteAsync(Guid id)

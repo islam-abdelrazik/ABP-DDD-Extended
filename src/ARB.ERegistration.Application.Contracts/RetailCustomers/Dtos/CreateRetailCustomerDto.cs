@@ -1,4 +1,5 @@
-﻿using ARB.ERegistration.ModelConstants;
+﻿using ARB.ERegistration.BankAccounts.Dtos;
+using ARB.ERegistration.ModelConstants;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -16,5 +17,6 @@ namespace ARB.ERegistration.RetailCustomers.Dtos
         public string Address { get; set; }
         public string ATMCard_PinCode { get; set; }
         public string ATMCard_CardNumber { get; set; }
+        public List<CreateBankAccountDto> BankAccounts { get; set; }
     }
 }

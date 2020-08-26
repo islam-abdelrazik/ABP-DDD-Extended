@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using ARB.ERegistration.BankAccounts;
+using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -21,8 +22,12 @@ namespace ARB.ERegistration.RetailCustomers
 
         public async Task<RetailCustomer> CreateAsync(
             [NN.NotNull] string name,
-            DateTime birthDate,
-            [CanBeNull] string shortBio = null)
+            [NN.NotNull] string commercialRegisterNo,
+            [NN.NotNull] string CICNo,
+            [NN.NotNull] string address,
+            [CanBeNull] string cardNumber, 
+            [CanBeNull] string pinCode,
+            [NN.NotNull] IEnumerable<BankAccount> bankAccounts)
         {
             Check.NotNullOrWhiteSpace(name, nameof(name));
 
@@ -32,13 +37,16 @@ namespace ARB.ERegistration.RetailCustomers
                 throw new RetailCustomerExistsException(name);
             }
 
-            //return new RetailCustomer(
-            //    GuidGenerator.Create(),
-            //    name,
-            //    birthDate,
-            //    shortBio
-            //);
-            return null;
+            return new RetailCustomer(
+                GuidGenerator.Create(),
+                name,
+                commercialRegisterNo,
+                CICNo,
+                address,
+                cardNumber,
+                pinCode,
+                bankAccounts
+            );
         }
 
        
