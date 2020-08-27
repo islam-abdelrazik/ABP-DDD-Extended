@@ -10,7 +10,7 @@ git clone
 1. set connection string and run the db migrator project.
 2. dotnet run ARB.ERegistration.HttpApi.Host
 
-## Extended Featuers
+## Extended Features
 
 1. Elastic search integration. 
 2. EF Core 3.1 DDD Entities Mapping.
