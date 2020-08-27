@@ -21,7 +21,7 @@ namespace ARB.ERegistration.RetailCustomers
         public string CICNo { get; private set; }
         public string Address { get; private set; }
         public ATMCard ATMCard { get; private set; }
-        public ICollection<BankAccount> BankAccounts { get; private set; }
+        public ICollection<BankAccount> BankAccounts { get; private set; } = new List<BankAccount>();
 
         private RetailCustomer()
         {
@@ -76,8 +76,8 @@ namespace ARB.ERegistration.RetailCustomers
         }
         private void AddBankAccounts(IEnumerable<BankAccount> bankAccounts)
         {
-            BankAccounts = BankAccounts is null ? new List<BankAccount>() : BankAccounts;
-            foreach (var bankAccount in BankAccounts)
+            bankAccounts = bankAccounts is null ? new List<BankAccount>() : bankAccounts;
+            foreach (var bankAccount in bankAccounts)
                 this.BankAccounts.Add(new BankAccount(bankAccount.BankName, bankAccount.BankNumber, this.Id));
         }
     }
