@@ -28,7 +28,7 @@ namespace ARB.ERegistration.RetailCustomers
             /* This constructor is for deserialization / ORM purpose */
         }
 
-        internal RetailCustomer(
+        public RetailCustomer(
             Guid id,
             [NN.NotNull] string name,
             [NN.NotNull] string commercialRegisterNo,
@@ -47,12 +47,21 @@ namespace ARB.ERegistration.RetailCustomers
             this.Address = address;
         }
 
+        public RetailCustomer Copy(RetailCustomer retailCustomer)
+        {
+            SetName(retailCustomer.Name);
+            SetATMCard(retailCustomer.ATMCard.CardNumber, retailCustomer.ATMCard.PinCode);
+            AddBankAccounts(retailCustomer.BankAccounts);
+            this.CommercialRegisterNo = retailCustomer.CommercialRegisterNo;
+            this.CICNo = retailCustomer.CICNo;
+            this.Address = retailCustomer.Address;
+            return this;
+        }
         internal RetailCustomer ChangeName([NN.NotNull] string name)
         {
             SetName(name);
             return this;
         }
-
         private void SetName([NN.NotNull] string name)
         {
             Name = Check.NotNullOrWhiteSpace(
@@ -65,11 +74,10 @@ namespace ARB.ERegistration.RetailCustomers
         {
             this.ATMCard = new ATMCard(cardNumber, pinCode);
         }
-
         private void AddBankAccounts(IEnumerable<BankAccount> bankAccounts)
         {
             BankAccounts = BankAccounts is null ? new List<BankAccount>() : BankAccounts;
-            foreach (var bankAccount in bankAccounts)
+            foreach (var bankAccount in BankAccounts)
                 this.BankAccounts.Add(new BankAccount(bankAccount.BankName, bankAccount.BankNumber, this.Id));
         }
     }

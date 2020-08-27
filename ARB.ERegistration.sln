@@ -35,7 +35,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ARB.ERegistration.HttpApi.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ARB.ERegistration.DbMigrator", "src\ARB.ERegistration.DbMigrator\ARB.ERegistration.DbMigrator.csproj", "{AA94D832-1CCC-4715-95A9-A483F23A1A5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARB.ERegistration.HttpApi.Host", "src\ARB.ERegistration.HttpApi.Host\ARB.ERegistration.HttpApi.Host.csproj", "{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ARB.ERegistration.HttpApi.Host", "src\ARB.ERegistration.HttpApi.Host\ARB.ERegistration.HttpApi.Host.csproj", "{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARB.ERegistration.AntiCorruptionLayer", "src\ARB.ERegistration.AntiCorruptionLayer\ARB.ERegistration.AntiCorruptionLayer.csproj", "{56B0A9AA-28EA-4493-A9C8-D83829C75065}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demo", "demo", "{BCB3A60F-8D1B-48C4-8F7E-9483407865CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARB.ESBService.API", "ARB.ESBService.API\ARB.ESBService.API.csproj", "{801F50CE-FAC8-40BE-BFFA-CA97BA462D73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -103,6 +109,14 @@ Global
 		{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56B0A9AA-28EA-4493-A9C8-D83829C75065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56B0A9AA-28EA-4493-A9C8-D83829C75065}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56B0A9AA-28EA-4493-A9C8-D83829C75065}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56B0A9AA-28EA-4493-A9C8-D83829C75065}.Release|Any CPU.Build.0 = Release|Any CPU
+		{801F50CE-FAC8-40BE-BFFA-CA97BA462D73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{801F50CE-FAC8-40BE-BFFA-CA97BA462D73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{801F50CE-FAC8-40BE-BFFA-CA97BA462D73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{801F50CE-FAC8-40BE-BFFA-CA97BA462D73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -123,6 +137,8 @@ Global
 		{EF480016-9127-4916-8735-D2466BDBC582} = {04DBDB01-70F4-4E06-B468-8F87850B22BE}
 		{AA94D832-1CCC-4715-95A9-A483F23A1A5D} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
+		{56B0A9AA-28EA-4493-A9C8-D83829C75065} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
+		{801F50CE-FAC8-40BE-BFFA-CA97BA462D73} = {BCB3A60F-8D1B-48C4-8F7E-9483407865CE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28315BFD-90E7-4E14-A2EA-F3D23AF4126F}

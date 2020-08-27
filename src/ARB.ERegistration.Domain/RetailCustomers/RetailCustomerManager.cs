@@ -1,4 +1,5 @@
 ﻿using ARB.ERegistration.BankAccounts;
+using ARB.ERegistration.RetailCustomers.ACL;
 using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,13 @@ namespace ARB.ERegistration.RetailCustomers
     public class RetailCustomerManager : DomainService
     {
         private readonly IRetailCustomerRepository _retailCustomerRepository;
+        private readonly IRetailCustomerExternalService _retailCustomerESBService;
 
-        public RetailCustomerManager(IRetailCustomerRepository retailCustomerRepository)
+        public RetailCustomerManager(IRetailCustomerRepository retailCustomerRepository,
+            IRetailCustomerExternalService retailCustomerESBService)
         {
             _retailCustomerRepository = retailCustomerRepository;
+            _retailCustomerESBService = retailCustomerESBService;
         }
 
         public async Task<RetailCustomer> CreateAsync(
@@ -31,6 +35,7 @@ namespace ARB.ERegistration.RetailCustomers
         {
             Check.NotNullOrWhiteSpace(name, nameof(name));
 
+            var retailCustomerData = await _retailCustomerESBService.GetRetailCustomerBankInfo(name);
             var existingRetailCustomer = await _retailCustomerRepository.FindByNameAsync(name);
             if (existingRetailCustomer != null)
             {
@@ -40,8 +45,8 @@ namespace ARB.ERegistration.RetailCustomers
             return new RetailCustomer(
                 GuidGenerator.Create(),
                 name,
-                commercialRegisterNo,
-                CICNo,
+                retailCustomerData.CommercialRegisterNo,
+                retailCustomerData.CICNo,
                 address,
                 cardNumber,
                 pinCode,

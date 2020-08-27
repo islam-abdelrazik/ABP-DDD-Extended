@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ARB.ERegistration.AntiCorruptionLayer\ARB.ERegistration.AntiCorruptionLayer.csproj" />
     <ProjectReference Include="..\ARB.ERegistration.Application\ARB.ERegistration.Application.csproj" />
     <ProjectReference Include="..\ARB.ERegistration.EntityFrameworkCore.DbMigrations\ARB.ERegistration.EntityFrameworkCore.DbMigrations.csproj" />
     <ProjectReference Include="..\ARB.ERegistration.HttpApi\ARB.ERegistration.HttpApi.csproj" />

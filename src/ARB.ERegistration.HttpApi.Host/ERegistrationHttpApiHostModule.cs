@@ -26,6 +26,7 @@ using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.VirtualFileSystem;
 using ARB.ERegistration.Auth;
+using ARB.ERegistration.AntiCorruptionLayer;
 
 namespace ARB.ERegistration
 {
@@ -34,6 +35,7 @@ namespace ARB.ERegistration
         typeof(AbpAutofacModule),
         typeof(AbpAspNetCoreMultiTenancyModule),
         typeof(ERegistrationApplicationModule),
+        typeof(ERegistrationAntiCorruptionLayerModule),
         typeof(ERegistrationEntityFrameworkCoreDbMigrationsModule),
         typeof(AbpAspNetCoreMvcUiBasicThemeModule),
         typeof(AbpAspNetCoreAuthenticationJwtBearerModule),
@@ -78,6 +80,7 @@ namespace ARB.ERegistration
                     options.FileSets.ReplaceEmbeddedByPhysical<ERegistrationDomainModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}ARB.ERegistration.Domain"));
                     options.FileSets.ReplaceEmbeddedByPhysical<ERegistrationApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}ARB.ERegistration.Application.Contracts"));
                     options.FileSets.ReplaceEmbeddedByPhysical<ERegistrationApplicationModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}ARB.ERegistration.Application"));
+                    options.FileSets.ReplaceEmbeddedByPhysical<ERegistrationAntiCorruptionLayerModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}ARB.ERegistration.AntiCorruptionLayer"));
                 });
             }
         }
