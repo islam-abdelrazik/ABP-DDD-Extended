@@ -20,18 +20,16 @@ namespace ARB.ERegistration.Controllers
     [ApiController]
     public class DemoController : ERegistrationController
     {
-        private ILogger<DemoController> _logger;
         private IStringLocalizer<ERegistrationResource> _stringLocalizer;
         private IConfiguration _config;
 
         public DemoController(ILogger<DemoController> logger, 
             IStringLocalizer<ERegistrationResource> stringLocalizer,
             IAuditingManager auditingManager,
-            IConfiguration config) : base(auditingManager)
+            IConfiguration config) : base(auditingManager,logger)
         {
             _config = config;
             _stringLocalizer = stringLocalizer;
-            _logger = logger;
         }
 
         [HttpGet]

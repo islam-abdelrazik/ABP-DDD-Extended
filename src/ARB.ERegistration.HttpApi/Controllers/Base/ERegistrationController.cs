@@ -14,10 +14,13 @@ namespace ARB.ERegistration.Controllers
     public abstract class ERegistrationController : AbpController
     {
         private readonly IAuditingManager _auditingManager;
-        protected ERegistrationController(IAuditingManager auditingManager)
+        protected ILogger<ERegistrationController> _logger;
+
+        protected ERegistrationController(IAuditingManager auditingManager, ILogger<ERegistrationController> logger)
         {
             _auditingManager = auditingManager;
             LocalizationResource = typeof(ERegistrationResource);
+            _logger = logger;
         }
 
         protected OkObjectResult OkAudited(object data)
@@ -28,6 +31,7 @@ namespace ARB.ERegistration.Controllers
                 currentAuditLogScope.Log.ExtraProperties.Add("Response",
                     data
                 );
+                _logger.LogInformation("Response Audited", data);
             };
             return Ok(data);
         }
